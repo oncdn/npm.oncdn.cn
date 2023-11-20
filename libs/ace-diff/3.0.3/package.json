@@ -1,0 +1,52 @@
+{
+  "name": "ace-diff",
+  "version": "3.0.3",
+  "description": "A diff/merging wrapper for Ace Editor built on google-diff-match-patch",
+  "main": "dist/ace-diff.min.js",
+  "module": "src/index.js",
+  "unpkg": "dist/ace-diff.min.js",
+  "scripts": {
+    "build": "parcel build src/index.js --global AceDiff --out-file ace-diff.min.js && npm run build-css",
+    "build-css": "parcel build src/styles/ace-diff.scss --out-file ace-diff.min.css && parcel build src/styles/ace-diff-dark.scss --out-file ace-diff-dark.min.css",
+    "dev": "parcel serve test/fixtures/index.html --open -d .parcel-cache",
+    "serve": "parcel test/fixtures/*.html --global AceDiff -p 8081 --no-hmr -d .parcel-cache",
+    "test": "NODE_ENV=test npm run mocha && cypress run",
+    "mocha": "mocha test/**/*.test.js",
+    "cypress": "cypress open",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ace-diff/ace-diff.git"
+  },
+  "keywords": [
+    "ace",
+    "dif",
+    "diffing",
+    "merge",
+    "merging",
+    "ace editor",
+    "syntax highlighting"
+  ],
+  "author": "Ben Keen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ace-diff/ace-diff/issues"
+  },
+  "homepage": "https://ace-diff.github.io/ace-diff/",
+  "dependencies": {
+    "diff-match-patch": "^1.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "cypress": "^4.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-cypress": "^2.1.2",
+    "eslint-plugin-import": "^2.20.2",
+    "mocha": "^7.2.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.5",
+    "semantic-release": "^17.0.8"
+  }
+}
